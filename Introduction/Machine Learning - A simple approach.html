@@ -13070,6 +13070,28 @@ div#notebook {
     });
     </script>
     <!-- End of mathjax configuration --></head>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/ipython-contrib/jupyter_contrib_nbextensions/master/src/jupyter_contrib_nbextensions/nbextensions/toc2/main.css">
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://rawgit.com/ipython-contrib/jupyter_contrib_nbextensions/master/src/jupyter_contrib_nbextensions/nbextensions/toc2/toc2.js"></script>
+
+<script>
+$( document ).ready(function(){
+
+            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": true, "sideBar": true, "skip_h1_title": true, "title_cell": "Table of Contents", "title_sidebar": "Table of Contents", "toc_cell": false, "toc_position": {"height": "583px", "left": "456px", "top": "175.133px", "width": "165px"}, "toc_section_display": true, "toc_window_display": true};
+
+            // fire the main function with these parameters
+            require(['nbextensions/toc2/toc2'], function (toc2) {
+                toc2.table_of_contents(cfg);
+            });
+    });
+</script>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -13077,15 +13099,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><h1>Table of Contents<span class="tocSkip"></span></h1></p>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Machine-Learning" data-toc-modified-id="Machine-Learning-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Machine Learning</a></span></li><li><span><a href="#Introduction" data-toc-modified-id="Introduction-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Introduction</a></span></li><li><span><a href="#Supervised-Learning" data-toc-modified-id="Supervised-Learning-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Supervised Learning</a></span><ul class="toc-item"><li><span><a href="#Linear-Regression" data-toc-modified-id="Linear-Regression-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Linear Regression</a></span><ul class="toc-item"><li><span><a href="#Gathering-Data" data-toc-modified-id="Gathering-Data-3.1.1"><span class="toc-item-num">3.1.1&nbsp;&nbsp;</span>Gathering Data</a></span></li><li><span><a href="#Data-Preparation" data-toc-modified-id="Data-Preparation-3.1.2"><span class="toc-item-num">3.1.2&nbsp;&nbsp;</span>Data Preparation</a></span></li><li><span><a href="#Choosing-a-Model" data-toc-modified-id="Choosing-a-Model-3.1.3"><span class="toc-item-num">3.1.3&nbsp;&nbsp;</span>Choosing a Model</a></span></li><li><span><a href="#Training" data-toc-modified-id="Training-3.1.4"><span class="toc-item-num">3.1.4&nbsp;&nbsp;</span>Training</a></span></li><li><span><a href="#Evaluation" data-toc-modified-id="Evaluation-3.1.5"><span class="toc-item-num">3.1.5&nbsp;&nbsp;</span>Evaluation</a></span></li></ul></li></ul></li></ul></div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Machine-Learning">Machine Learning<a class="anchor-link" href="#Machine-Learning">&#182;</a></h1><p>A brief introduction to machine learning.</p>
+<h1 id="Machine-Learning---A-Simple-Approach">Machine Learning - A Simple Approach<a class="anchor-link" href="#Machine-Learning---A-Simple-Approach">&#182;</a></h1><p>A brief introduction the world of ML.</p>
 
 </div>
 </div>
@@ -13114,11 +13128,10 @@ with values of NA. We would ask the computer to take a dataset as an input, look
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Linear-Regression">Linear Regression<a class="anchor-link" href="#Linear-Regression">&#182;</a></h2><p>The linear model is the simplest form of predicting values. Here we are stating that the independent variables
-affect the dependent variable linearly.
+affect the dependent variable linearly.</p>
 \begin{equation*}
-\hat{Y} = \hat{\beta_0} + \sum^{J}_{j=1} x_j \hat{\beta_j}=X^T\hat{\beta}
-\end{equation*}</p>
-<p>The intercept is known as the bias in ML, while the other betas are the corresponding coefficients for the independent varibles. The betas represent the partial derivative with respect to the independent variable.</p>
+\hat{Y} = \hat{\beta}_0 + \sum^{J}_{j=1} x_j \hat{\beta}_j=X^T \hat{\beta}
+\end{equation*}<p>The intercept is known as the bias in ML, while the other betas are the corresponding coefficients for the independent varibles. The betas represent the partial derivative with respect to the independent variable.</p>
 <p>Lets begin our process of Machine Learning:</p>
 
 </div>
@@ -13129,16 +13142,16 @@ affect the dependent variable linearly.
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Gathering-Data">Gathering Data<a class="anchor-link" href="#Gathering-Data">&#182;</a></h3><p>We begin by setting a seed, the number inside the parenthesis is arbitrary. The reason we set a seed is
 so that we obtain the same random variables when ever we rerun the code, thus getting the same results.
-We will sample one thousand observation from the uniform distribution with dierent ranges. Then we will
-produce an output. Observe that our linear model intersept is set to zero, and we have dened our betas.
-In essence this is the population linear model, the actuall data generating process.</p>
+We will sample one thousand observation from the uniform distribution with different ranges. Then we will
+produce an output. Observe that our linear model intercept is set to zero, and we have defined our betas.
+In essence this is the population linear model, the true data generating process.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">#------------------------------------------------</span>
@@ -13211,7 +13224,7 @@ having one of the outputs outweight the other.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">#------------------------------------------------</span>
@@ -13226,10 +13239,12 @@ having one of the outputs outweight the other.</p>
   <span class="n">else</span><span class="p">{</span><span class="n">y</span><span class="o">&lt;-</span><span class="m">1</span><span class="p">}</span>
 <span class="p">}</span>
 <span class="c1">#apply function above to each row</span>
-<span class="n">data</span><span class="o">$</span><span class="n">y</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">Recode</span><span class="p">))</span>
+<span class="n">y_recode</span><span class="o">=</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">Recode</span><span class="p">))</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">y_recode</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;yrecode&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">&lt;-</span><span class="nf">cbind</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">y_recode</span><span class="p">)</span>
 
 <span class="c1">#create a table and rename col</span>
-<span class="n">Freqtable</span><span class="o">&lt;-</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">y</span><span class="p">))</span>
+<span class="n">Freqtable</span><span class="o">&lt;-</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">yrecode</span><span class="p">))</span>
 <span class="nf">colnames</span><span class="p">(</span><span class="n">Freqtable</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Red&quot;</span><span class="p">,</span><span class="s">&quot;Blue&quot;</span><span class="p">)</span>
 <span class="c1">#print</span>
 <span class="n">Freqtable</span>
@@ -13296,15 +13311,21 @@ training data. We are able to evaluate the preformance because we know the actua
 In order to create a ML process , we will need to update our parameters given some Loss value. Loss
 would be the calculation of how many output variables we predicted incorrectly. Below I will write some ad
 psuedo code:</p>
-<div class="alert alert-block alert-warning">
-<b>Example:</b> 
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><b>Example:</b> 
     function(Initial Values){ <br>
 parameters= Initial Values <br>
 RunModel(parameters) <br>
 if (LossValue gt epsilon) <br>
 {return Y} <br>
-else parameters<-updateValues}
-</div>
+else parameters&lt;-updateValues}</p>
+
 </div>
 </div>
 </div>
@@ -13325,7 +13346,7 @@ save on speed and not have the vector changing size as the loop continues.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">#-------------------------</span>
@@ -13335,16 +13356,16 @@ save on speed and not have the vector changing size as the loop continues.</p>
 <span class="n">intb1</span><span class="o">&lt;-</span><span class="m">0.0</span>
 <span class="n">intb2</span><span class="o">&lt;-</span><span class="m">0.8</span>
 <span class="n">Accuracy</span><span class="o">&lt;-</span><span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-<span class="n">y_pred</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">ncol</span><span class="o">=</span><span class="n">n</span><span class="p">))</span>
+<span class="n">ypred</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">ncol</span><span class="o">=</span><span class="n">n</span><span class="p">))</span>
 
 <span class="n">b1</span><span class="o">&lt;-</span><span class="n">intb1</span>
 <span class="n">b2</span><span class="o">&lt;-</span><span class="n">intb2</span>
 
-<span class="n">y_pred[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="o">&lt;-</span><span class="n">b1</span><span class="o">*</span><span class="n">data</span><span class="o">$</span><span class="n">x1</span><span class="o">+</span><span class="n">b2</span><span class="o">*</span><span class="n">data</span><span class="o">$</span><span class="n">x2</span>
+<span class="n">ypred[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="o">&lt;-</span><span class="n">b1</span><span class="o">*</span><span class="n">data</span><span class="o">$</span><span class="n">x1</span><span class="o">+</span><span class="n">b2</span><span class="o">*</span><span class="n">data</span><span class="o">$</span><span class="n">x2</span>
 <span class="c1">#recode the predictions to a binary classification</span>
-<span class="n">ypred[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">y_pred[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span><span class="n">Recode</span><span class="p">))</span>
+<span class="n">ypred[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">ypred[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span><span class="n">Recode</span><span class="p">))</span>
 <span class="n">data</span><span class="o">$</span><span class="n">ypred</span><span class="o">&lt;-</span><span class="n">ypred[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>
-<span class="n">Accuracy[1]</span><span class="o">&lt;-</span><span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">y</span><span class="o">==</span><span class="n">ypred[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">)</span>
+<span class="n">Accuracy[1]</span><span class="o">&lt;-</span><span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">yrecode</span><span class="o">==</span><span class="n">ypred[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">)</span>
 <span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;The Accuracy is: %g percent&quot;</span><span class="p">,</span><span class="n">Accuracy[1]</span><span class="o">*</span><span class="m">100</span><span class="p">)</span>
 </pre></div>
 
@@ -13387,7 +13408,645 @@ our new accuracy parameter is larger than the previous accuracy parameter from o
 update using assumption A. Once the loop is done, we check which entry in our vector is the one with the
 highest accuracy and then we return the value as well as the corresponding ypred vector. Finally we run the
 code and view the data side by side , with our True Y values and our first prediciton.</p>
-<p><a id="ref1">[1]</a>your footer text Our for loop starts from i=2 because our vector ypred's first column is the prediction from section<a href="#train"> Training</a>.</p>
+<p><font size="1"><a id="ref1">[1]</a>Our for loop starts from i=2 because our vector ypred's first column is the prediction from section <a href="#train">Training</a>.</font></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[120]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#initial values</span>
+
+<span class="n">n</span><span class="o">&lt;-</span><span class="m">4</span>
+<span class="n">B</span><span class="o">&lt;-</span><span class="nf">rbind</span><span class="p">(</span><span class="n">intb1</span><span class="p">,</span><span class="n">intb2</span><span class="p">)</span>
+<span class="n">A</span><span class="o">&lt;-</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0.05</span><span class="p">,</span><span class="m">-0.1</span><span class="p">),</span><span class="n">nrow</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="n">C</span><span class="o">&lt;-</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0.1</span><span class="p">,</span><span class="m">0.1</span><span class="p">),</span><span class="n">nrow</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+
+<span class="n">ML</span><span class="o">&lt;-</span><span class="nf">function</span><span class="p">(</span><span class="n">intb1</span><span class="p">,</span><span class="n">intb2</span><span class="p">){</span>
+    <span class="n">B</span><span class="o">&lt;-</span><span class="n">B</span><span class="o">+</span><span class="n">A</span>
+    <span class="c1">#number of iteration, to change the parameters</span>
+    <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">2</span><span class="o">:</span><span class="n">n</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">ypred[</span><span class="p">,</span><span class="n">i]</span><span class="o">&lt;-</span><span class="n">B[1]</span><span class="o">*</span><span class="n">data</span><span class="o">$</span><span class="n">x1</span><span class="o">+</span><span class="n">B[2]</span><span class="o">*</span><span class="n">data</span><span class="o">$</span><span class="n">x2</span>
+        <span class="c1"># recode to a binary variable</span>
+        <span class="n">ypred[</span><span class="p">,</span><span class="n">i]</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">ypred[</span><span class="p">,</span><span class="n">i]</span><span class="p">,</span><span class="n">Recode</span><span class="p">))</span>
+        <span class="n">Accuracy[i]</span><span class="o">&lt;-</span><span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">yrecode</span><span class="o">==</span><span class="n">ypred[</span><span class="p">,</span><span class="n">i]</span><span class="p">)</span>
+        
+        <span class="c1">#condition if the new accuracy is better than the previous</span>
+        <span class="c1">#continue on the A path otherwise switch to C</span>
+        <span class="nf">if</span><span class="p">(</span><span class="n">Accuracy[i]</span><span class="o">&gt;=</span><span class="n">Accuracy[i</span><span class="m">-1</span><span class="n">]</span><span class="p">)</span>
+            <span class="p">{</span><span class="n">B</span><span class="o">&lt;-</span><span class="n">B</span><span class="o">+</span><span class="n">A</span>
+            <span class="p">}</span><span class="n">else</span><span class="p">{</span><span class="n">B</span><span class="o">&lt;-</span><span class="n">C</span><span class="o">+</span><span class="n">B</span><span class="p">}</span>
+    <span class="c1">#loop ends    </span>
+    <span class="p">}</span>
+    
+    <span class="c1">#grab the position of the largest accuracy</span>
+    <span class="n">position</span><span class="o">&lt;-</span><span class="nf">which.max</span><span class="p">(</span><span class="n">Accuracy</span><span class="p">)</span>
+    <span class="c1">#return the values</span>
+    <span class="n">max_val</span><span class="o">&lt;-</span><span class="n">Accuracy[position]</span>
+    <span class="c1">#print solution</span>
+    <span class="n">solution</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="n">ypred[</span><span class="p">,</span><span class="n">position]</span><span class="p">,</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;The Accuracy is: %g Percent&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">max_val</span><span class="o">*</span><span class="m">100</span><span class="p">)))</span>
+    <span class="c1">#return the value</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">#save the results into parameter</span>
+<span class="n">Lin.sol</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">ML</span><span class="p">(</span><span class="n">intb1</span><span class="p">,</span><span class="n">intb2</span><span class="p">))</span>
+<span class="n">data</span><span class="o">$</span><span class="n">ypred1</span><span class="o">&lt;-</span><span class="n">Lin.sol[1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="m">1</span><span class="n">]</span>
+
+<span class="c1">#view</span>
+<span class="nf">as.character</span><span class="p">(</span><span class="n">Lin.sol</span><span class="nf">[nrow</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="m">+1</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'The Accuracy is: 79.1 Percent'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Visualization">Visualization<a class="anchor-link" href="#Visualization">&#182;</a></h3><p>Lets visualize the data above. We are going to plot the datapoints with the decision that any $y &gt; 0.4$ is going to be red. Thus $0.4 = g(x1; x2)$ is our decision boundary.</p>
+\begin{equation*}
+0.4 = g(x1; x2)= 0.5x_1+0.4x_2
+\end{equation*}<p>and solving for $x_2$:</p>
+\begin{equation*}
+x_2=1-\frac{0.5}{0.4}x_1
+\end{equation*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">suppressWarnings</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">))</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">test</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">))</span><span class="o">+</span>
+<span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="nf">as.factor</span><span class="p">(</span><span class="n">yrecode</span><span class="p">)))</span><span class="o">+</span>
+<span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Linear Decision Boundary&quot;</span><span class="p">,</span><span class="n">caption</span><span class="o">=</span><span class="s">&quot;some points are misclassfied at the boundary line.&quot;</span><span class="p">)</span><span class="o">+</span>
+<span class="nf">scale_colour_discrete</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;binary variable&#39;</span><span class="p">)</span><span class="o">+</span>
+<span class="nf">theme</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="nf">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">15</span><span class="p">))</span><span class="o">+</span>
+<span class="c1">#intercept (bounday - b0)/b2</span>
+<span class="c1">#slope -(b2/b1)</span>
+<span class="nf">geom_abline</span><span class="p">(</span><span class="n">intercept</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">slope</span><span class="o">=-</span><span class="p">(</span><span class="m">0.5</span><span class="o">/</span><span class="m">0.4</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="Machine Learning - A simple approach_files/Machine Learning - A simple approach_18_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Parameter-Tuning">Parameter Tuning<a class="anchor-link" href="#Parameter-Tuning">&#182;</a></h3><p>Our ML model from the previous section did pretty well, it was able to predict our training data set 81.9%
+of the time. But can we do any better?
+Lets go back to our intrductory course of Econometrics, where we use optimization to get the values of $\beta$ by minimizing least squares.</p>
+\begin{equation*}
+argmin_{\beta \epsilon B} = \sum_{i=1}^N (y_i - x_t^T \beta)^2= (\textbf{y-X}\beta)^T(\textbf{y-X}\beta)
+\end{equation*}<p>if $X^TX$ is nonsingular, then the solution will be unique:</p>
+\begin{equation*}
+\hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
+\end{equation*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#-----------------</span>
+<span class="c1">#parameter tunning</span>
+<span class="c1">#-----------------</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">MASS</span><span class="p">)</span>
+<span class="c1">#Linear Regression</span>
+<span class="n">fit</span><span class="o">&lt;-</span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="m">-1</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+<span class="n">fit</span><span class="o">$</span><span class="n">coefficients</span>
+
+<span class="c1"># Accuracy of the model</span>
+<span class="n">b1</span><span class="o">&lt;-</span><span class="n">fit</span><span class="o">$</span><span class="n">coefficients[1]</span>
+<span class="n">b2</span><span class="o">&lt;-</span><span class="n">fit</span><span class="o">$</span><span class="n">coefficients[2]</span>
+
+<span class="n">y_hat</span><span class="o">&lt;-</span><span class="n">b1</span><span class="o">*</span><span class="n">x1</span><span class="o">+</span><span class="n">b2</span><span class="o">*</span><span class="n">x2</span>
+<span class="n">data_tune</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="n">y_recode</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">))</span>
+<span class="n">data_tune</span><span class="o">$</span><span class="n">pred_y</span><span class="o">&lt;-</span><span class="nf">sapply</span><span class="p">(</span><span class="n">y_hat</span><span class="p">,</span><span class="n">Recode</span><span class="p">)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">data_tune</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;True_y&#39;</span><span class="p">,</span><span class="s">&#39;X1&#39;</span><span class="p">,</span><span class="s">&#39;X2&#39;</span><span class="p">,</span><span class="s">&#39;Pred_y&#39;</span><span class="p">)</span>
+
+<span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;The Accuracy is: %g percent&quot;</span><span class="p">,</span><span class="nf">mean</span><span class="p">(</span><span class="n">data_tune</span><span class="o">$</span><span class="n">True_y</span><span class="o">==</span><span class="n">data_tune</span><span class="o">$</span><span class="n">Pred_y</span><span class="p">)</span><span class="o">*</span><span class="m">100</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<dl class=dl-horizontal>
+	<dt>x1</dt>
+		<dd>0.5</dd>
+	<dt>x2</dt>
+		<dd>0.4</dd>
+</dl>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'The Accuracy is: 100 percent'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The resulting accuracy is 100%. Why?</p>
+<p>Because we have all the information needed to accurately fit the model. In practice, we do not have all the features neccessary to fit a model. Therefore our linear regression will have some random error which represents other factors that impact the target variable ($y$) but that we are unable to account for.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercise">Exercise<a class="anchor-link" href="#Exercise">&#182;</a></h2><div class="alert alert-block alert-info">
+Build a table showing the count of each value of Y and
+how well the prection did against it.
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="K---Nearest-Neighborhood-Method">K - Nearest Neighborhood Method<a class="anchor-link" href="#K---Nearest-Neighborhood-Method">&#182;</a></h2><p>In its simplist form (classification), uses $x_i$ K Nearest Neighbors to vote on what $x_i$s label should be. If
+this were a quantitative output, it could be the mean of the K- Nearest Neighbors.
+For out example above which is quantitative, and the range of the independent variables are similar by
+choice, we can use the Euclidean distance for our algorithm. There are other methods to view the distance
+such as Manhattan and Minkowski. There is also the Hamming Distance for categorical variables.
+\begin{equation*}
+Euclidean =\sqrt{\sum (qi-pi)2}
+\end{equation*}
+Choosing k
+-Increasing k reduces variances, but increases the bias
+Lets assume our Y is a quantity. Therefore, we choose $\hat{Y}$ such that:</p>
+\begin{equation*}
+\hat{Y}=\frac{1}{k}\sum_{x_i \epsilon N-k(x)}y_i,
+\end{equation*}<p>The k- nearest neighbor fit $\hat{Y}$ where $N_k(x)$ is the neighborhood of x which is defined by the k closest
+points in the training sample. The closeness is defined by the Euclidean distance above.
+For our example above which is defined as a dummy variable, where 1="Blue" and 0="Red" our  $\hat{Y}$ is:
+\begin{equation*}
+\hat{Y}= \frac{Blue \sum_{x_i \epsilon N-k(x)}y_i = "Blue" &gt; \sum_{x_i \epsilon N-k(x)}y_i ="Red" }{Red \space else} 
+\end{equation*}</p>
+<p>Some Cons of this method: To determine the nearest neighbor of a new point x, must compute the
+distance to all m training examples. Runtime performance is slow.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="KNN-Algorithm-Pseudocode:">KNN Algorithm Pseudocode:<a class="anchor-link" href="#KNN-Algorithm-Pseudocode:">&#182;</a></h3><ol>
+<li>Calculate $d(x,x_i) \forall i \space \epsilon \space (1,2...,n);$ where d denotes the Euclidean distance between points.</li>
+<li>Sort the distrances in non-descending order</li>
+<li>Let $k$ be a positive integer, take the first k distances from the list in step 2.</li>
+<li>Find those $k$- points corresponding to these k-distances.</li>
+<li>Let $k_i$ denote the number of points belonging to the $i^{th}$ class among k points.</li>
+<li>if $k_i&gt;k_j \space \forall i \ne j$ then put x in class i.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Gathering-Data">Gathering Data<a class="anchor-link" href="#Gathering-Data">&#182;</a></h3><p>This will be exactly the same as section 2.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Data-Preperation">Data Preperation<a class="anchor-link" href="#Data-Preperation">&#182;</a></h3><p>The only difference from section one is that we are going to split the data to have a test and training model.
+The split we will use is one-third is our test data and the other will be the train data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Train and Test Data Split </span>
+
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">130</span><span class="p">)</span>
+<span class="n">ind</span><span class="o">&lt;-</span><span class="nf">sample</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="nf">nrow</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">replace</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">prob</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0.67</span><span class="p">,</span><span class="m">0.33</span><span class="p">))</span>
+<span class="n">train</span><span class="o">&lt;-</span><span class="n">data[ind</span><span class="o">==</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="n">]</span>
+<span class="n">test2</span><span class="o">&lt;-</span><span class="n">data[ind</span><span class="o">==</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="n">]</span>
+
+<span class="n">test2.results</span><span class="o">&lt;-</span><span class="n">data[ind</span><span class="o">==</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Choose-Model-and-Training">Choose Model and Training<a class="anchor-link" href="#Choose-Model-and-Training">&#182;</a></h3><p>We will choose the KNN model, but instead of using the imbedded Knn function we will build it from scratch.
+Suppose we have the following data. The one on the left represents our train data, and the right our test
+data.</p>
+<table>
+<thead><tr>
+<th>x<sub>1</sub></th>
+<th style="text-align:center">g<sub>1</sub></th>
+<th></th>
+<th style="text-align:center">x<sub>2</sub></th>
+<th style="text-align:right">g<sub>2</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x<sub>11</sub></td>
+<td style="text-align:center">g<sub>11</sub></td>
+<td></td>
+<td style="text-align:center">x<sub>21</sub></td>
+<td style="text-align:right">g<sub>21</sub></td>
+</tr>
+<tr>
+<td>x<sub>12</sub></td>
+<td style="text-align:center">g<sub>12</sub></td>
+<td></td>
+<td style="text-align:center">x<sub>22</sub></td>
+<td style="text-align:right">g<sub>22</sub></td>
+</tr>
+<tr>
+<td>x<sub>13</sub></td>
+<td style="text-align:center">g<sub>13</sub></td>
+<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:right"></td>
+</tr>
+</tbody>
+</table>
+<p>From our function of Euclidean distance we want the following outcomes, Dist_1 is the list of distance
+of our first obsevation in our test data against all the points in the train data, conversely Dist_2 is for the second observation.</p>
+<table>
+      <col width="250">
+  <col width="250">
+<tr>
+<th>Distance 1</th>
+<th>Distance 2</th>
+</tr>
+<tr>
+<td>\begin{equation*}d_{11}=\sqrt{(x_{21}-x{11})^2+(g_{21}-g{11})^2}\end{equation*}</td>
+<td>\begin{equation*}d_{21}=\sqrt{(x_{22}-x{11})^2+(g_{22}-g{11})^2}\end{equation*}</td>
+</tr>
+<tr>
+<td> \begin{equation*}d_{12}=\sqrt{(x_{21}-x{12})^2+(g_{21}-g{12})^2}\end{equation*}</td>
+<td>\begin{equation*}d_{22}=\sqrt{(x_{22}-x{12})^2+(g_{22}-g{12})^2}\end{equation*} </td>
+</tr>
+<tr>
+<td>\begin{equation*}d_{13}=\sqrt{(x_{21}-x{13})^2+(g_{21}-g{13})^2}\end{equation*}</td>
+<td>\begin{equation*}d_{23}=\sqrt{(x_{22}-x{13})^2+(g_{22}-g{13})^2}\end{equation*}</td>
+</tr>
+</table><p>Lets Begin our code, first lets start with the first observation $i = 1$ and calculate the distance for all the rows of our train table, j $\epsilon$(1 :# of rows of train data).</p>
+<p>We begin our for loop with observation $j= 1$ which corresponds to $d_{11}$. The second line is taking the $i^{th}$
+and $j^{th}$ row of our test and trian table, explicity rows 1. Then the operation is a entry by entry operation.
+In essence test2[1, ] would return [$x_{21}g_{21}$] and similarly for train[1, ]. Now c would contain [$(x_{21} - x_{11})^2(g_{21} - g_{11})^2$] as a vector. Finally the last line just extracts the two values and sums them to finish the
+Euclidean Distance formula. This would be iterated until the entire column Dist_1 is filled.</p>
+<p>Next we will order our distance in non-decresing order and take the k closest points. After the k closest
+points are obtained, we will average the points, since it is just a grid of zeros or ones. Next we dene a rule for prediction, the basic rule is that if the average is over 50% then pred=1, since that means that there were more values of 1 than 0, otherwise set pred=0. Ok now we just predicted the first observation of our test data.</p>
+<table>
+      <col width="250">
+<tr>
+<th>Pred</th>
+</tr>
+<tr>
+    <td>Pred_1=result</td>
+    </tr>
+<tr>
+<td>Pred_2</td>
+</tr>
+</table><p>The final step is to do this for the rest of the rows of the test data. Hence our for loop above, will be
+nested in another for loop for all the $i \space \epsilon \space$(1 :# of rows of test data). Our complete Knn prediction function looks like this and we will also time how long it takes for our code to run through our test and train set, it took the computer 404 seconds to execute the command. The reason it took about ~7 mins
+is because for-loops are inefficient and the loop is [running number of row(test2) $\cdot$ number of rows(train)] calculations , not including the time to sort data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#------------------------------------------------</span>
+<span class="c1"># Choose Model and Training</span>
+<span class="c1">#------------------------------------------------</span>
+<span class="c1">#------------------------</span>
+<span class="c1"># Build KNN From Scratch</span>
+<span class="c1">#------------------------</span>
+
+<span class="c1">#defining variables before hand</span>
+
+<span class="n">pred</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">test2</span><span class="p">),</span><span class="m">1</span><span class="p">))</span>
+<span class="n">eu_dist</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">train</span><span class="p">),</span><span class="m">1</span><span class="p">))</span> 
+<span class="n">e</span><span class="o">&lt;-</span><span class="n">eu_dist</span>
+<span class="n">eu_dist</span><span class="o">&lt;-</span><span class="nf">cbind</span><span class="p">(</span><span class="n">eu_dist</span><span class="p">,</span><span class="n">data[ind</span><span class="o">==</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="n">]</span><span class="p">)</span>
+<span class="n">k</span><span class="o">&lt;-</span><span class="m">3</span>
+
+<span class="n">knn_predict</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">test2</span><span class="p">,</span><span class="n">train</span><span class="p">,</span><span class="n">k</span><span class="p">){</span>
+  
+  <span class="c1">#Loop 1</span>
+  
+  <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="nf">in </span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">test2</span><span class="p">))){</span>
+    
+    
+    <span class="c1">#Loop 2</span>
+    <span class="nf">for</span><span class="p">(</span><span class="n">j</span> <span class="nf">in </span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">train</span><span class="p">))){</span>
+      <span class="c1"># Perform Euclidean Dist</span>
+      <span class="n">c</span><span class="o">&lt;-</span><span class="p">(</span><span class="n">test2[i</span><span class="p">,</span><span class="n">]</span><span class="o">-</span><span class="n">train[j</span><span class="p">,</span><span class="n">]</span><span class="p">)</span><span class="n">^2</span>
+      <span class="n">eu_dist[j</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="o">&lt;-</span><span class="n">c[1]</span><span class="o">+</span><span class="n">c[2]</span>
+    <span class="p">}</span>
+    <span class="c1">#order distance in non-decreasing order</span>
+    <span class="n">e</span><span class="o">&lt;-</span><span class="n">eu_dist</span>
+    <span class="n">e</span><span class="o">&lt;-</span><span class="n">e</span><span class="nf">[order</span><span class="p">(</span><span class="n">e</span><span class="o">$</span><span class="n">V1</span><span class="p">),</span><span class="n">]</span>
+    <span class="c1">#lets take the k closest points</span>
+    <span class="n">e</span><span class="o">&lt;-</span><span class="n">e[1</span><span class="o">:</span><span class="n">k</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
+    <span class="c1"># lets take the average of these points</span>
+    <span class="n">s</span><span class="o">&lt;-</span><span class="nf">sum</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">/</span><span class="n">k</span>
+    <span class="c1">#rule for prediction</span>
+    <span class="nf">if</span><span class="p">(</span><span class="n">s</span><span class="o">&gt;</span><span class="m">0.5</span><span class="p">)</span>
+    <span class="p">{</span><span class="n">pred[i</span><span class="p">,</span><span class="n">]</span><span class="o">&lt;-</span><span class="m">1</span> 
+    <span class="p">}</span><span class="n">else</span> <span class="p">{</span><span class="n">pred[i</span><span class="p">,</span><span class="n">]</span><span class="o">&lt;-</span><span class="m">0</span><span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nf">return</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">#Start Clock</span>
+<span class="n">ptm</span><span class="o">&lt;-</span><span class="nf">proc.time</span><span class="p">()</span>
+<span class="c1"># Run Code</span>
+<span class="n">Y_Pred</span><span class="o">&lt;-</span><span class="nf">knn_predict</span><span class="p">(</span><span class="n">test2</span><span class="p">,</span><span class="n">train</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+<span class="c1">#Stop Clock</span>
+<span class="nf">proc.time</span><span class="p">()</span><span class="o">-</span><span class="n">ptm</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>   user  system elapsed 
+ 404.57    0.64  410.53 </pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Evaluation">Evaluation<a class="anchor-link" href="#Evaluation">&#182;</a></h3><p>Let check how well our model will predict out test set. We see that we are able to predict 97% of the output correctly.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#------------------------------------------------</span>
+<span class="c1"># Evaluation</span>
+<span class="c1">#------------------------------------------------</span>
+<span class="n">test2.results</span><span class="o">&lt;-</span><span class="nf">sapply</span><span class="p">(</span><span class="n">test2.results</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="nf">Recode</span><span class="p">(</span><span class="n">x</span><span class="p">)})</span>
+<span class="n">Y_Actu</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">test2.results</span><span class="p">)</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">Y_Pred</span> <span class="o">==</span> <span class="n">Y_Actu</span><span class="p">)</span><span class="o">*</span><span class="m">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+97.1014492753623
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Parameter-Tuning">Parameter Tuning<a class="anchor-link" href="#Parameter-Tuning">&#182;</a></h3><p>Below we optimization the computational time (we will only use one loop instead, sweep() helps us avoid a loop), Notice that using the same data it only took 1.92 seconds to solve, and we checked that the results are the same, which they are!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[143]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#defining variables before hand</span>
+
+<span class="n">pred</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">test2</span><span class="p">),</span><span class="m">1</span><span class="p">))</span>
+<span class="n">e_dist</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">train</span><span class="p">),</span><span class="m">1</span><span class="p">))</span> 
+<span class="n">e</span><span class="o">&lt;-</span><span class="n">e_dist</span>
+<span class="n">e_dist</span><span class="o">&lt;-</span><span class="nf">cbind</span><span class="p">(</span><span class="n">e_dist</span><span class="p">,</span><span class="n">data[ind</span><span class="o">==</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="n">]</span><span class="p">)</span>
+<span class="n">k</span><span class="o">&lt;-</span><span class="m">3</span>
+<span class="c1"># we will transpose the data in order to run it in the function sweep()</span>
+<span class="n">test3</span><span class="o">&lt;-</span><span class="nf">t</span><span class="p">(</span><span class="n">test2</span><span class="p">)</span>
+<span class="c1">#---------------</span>
+
+<span class="n">knn_predict2</span><span class="o">&lt;-</span><span class="nf">function</span><span class="p">(</span><span class="n">test3</span><span class="p">,</span><span class="n">train</span><span class="p">,</span><span class="n">k</span><span class="p">){</span>
+  <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="nf">in </span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">test2</span><span class="p">))){</span>
+    <span class="c1">#Euclidean Dist</span>
+    
+    <span class="c1">#sweep with subtract the ith column of test3 (which is just the ith row of test2) </span>
+    <span class="c1"># from all rows in train data set</span>
+    <span class="n">subtrct</span><span class="o">&lt;-</span><span class="nf">sweep</span><span class="p">(</span><span class="o">-</span><span class="n">train[</span><span class="p">,</span><span class="n">]</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="o">-</span><span class="n">test3[</span><span class="p">,</span><span class="n">i]</span><span class="p">)</span>
+    <span class="c1"># next we will square element by element</span>
+    <span class="n">subtrct</span><span class="o">&lt;-</span><span class="n">subtrct^2</span>
+    <span class="c1"># then we add each value as we did for line 69 above</span>
+    <span class="n">e_dist[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="o">&lt;-</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">subtrct[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="o">+</span><span class="n">subtrct[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="p">)</span>
+    <span class="n">e</span><span class="o">&lt;-</span><span class="n">e_dist</span>
+    <span class="c1">#order</span>
+    <span class="nf">colnames</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="n">[1]</span><span class="o">&lt;-</span><span class="s">&quot;V1&quot;</span>
+    <span class="n">e</span><span class="o">&lt;-</span><span class="n">e</span><span class="nf">[order</span><span class="p">(</span><span class="n">e</span><span class="o">$</span><span class="n">V1</span><span class="p">),</span><span class="n">]</span>
+    <span class="c1">#lets take the k closest points</span>
+    <span class="n">e</span><span class="o">&lt;-</span><span class="n">e[1</span><span class="o">:</span><span class="n">k</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
+    <span class="c1"># lets take the average of these points</span>
+    <span class="n">s</span><span class="o">&lt;-</span><span class="nf">sum</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">/</span><span class="n">k</span>
+    <span class="c1">#rule for prediction</span>
+    <span class="nf">if</span><span class="p">(</span><span class="n">s</span><span class="o">&gt;</span><span class="m">0.5</span><span class="p">)</span>
+    <span class="p">{</span><span class="n">pred[i</span><span class="p">,</span><span class="n">]</span><span class="o">&lt;-</span><span class="m">1</span> 
+    <span class="p">}</span><span class="n">else</span> <span class="p">{</span><span class="n">pred[i</span><span class="p">,</span><span class="n">]</span><span class="o">&lt;-</span><span class="m">0</span><span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nf">return</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">#Start Clock</span>
+<span class="n">ptm</span><span class="o">&lt;-</span><span class="nf">proc.time</span><span class="p">()</span>
+<span class="c1"># Run Code</span>
+<span class="n">Y_Pred2</span><span class="o">&lt;-</span><span class="nf">knn_predict2</span><span class="p">(</span><span class="n">test3</span><span class="p">,</span><span class="n">train</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+<span class="c1">#Stop Clock</span>
+<span class="nf">proc.time</span><span class="p">()</span><span class="o">-</span><span class="n">ptm</span>
+
+<span class="c1">#check if the results are the same as the first formula</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">Y_Pred</span><span class="o">==</span><span class="n">Y_Pred2</span><span class="p">)</span><span class="o">*</span><span class="m">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>   user  system elapsed 
+   1.08    0.00    1.17 </pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+100
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Additional-Notes:">Additional Notes:<a class="anchor-link" href="#Additional-Notes:">&#182;</a></h2><p>There are built in function that will perform our KNN algorithm, you can install.package("class") for the
+knn() function.
+There is also a package called "caret" which hold an abundance of ML models. Check it out</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h1><p>In this post we have introduced the concept of supervised learning, and worked on two techniques (Linear Regression and KNN). Keep in mind that these are no the only supervised learning technique.</p>
 
 </div>
 </div>
