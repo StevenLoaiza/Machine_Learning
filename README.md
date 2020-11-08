@@ -10,7 +10,7 @@
   </ul>
 </li>
 <li><a href="#simple">2 A Simple Approch</a></li>
-<li><a href="#Third_Point_Header">3 Third Point Header</a></li>
+<li><a href="#tree">3 Decision Trees</a></li>
 </ul>
 </div>
 
@@ -24,7 +24,7 @@ Use the Hyper Link on each section title to read the article content.
 <p> A Brief Introduction to the world of Machine Learning. In this article we begin with two easy to understand supervised learning concepts (Linear Regressions & K- Nearest Neighborhood Method)</p>
 
 
-# ![Decision Trees](https://github.com/StevenLoaiza/Machine_Learning/tree/master/Decision%20Trees)
+# <a id="tree" href="https://github.com/StevenLoaiza/Machine_Learning/tree/master/Decision%20Trees"> Decision Trees</a>
 
 This section is part of a larger effort to create a comprehensive compliation of lessons related to Data Science and Programming in Python.
 
