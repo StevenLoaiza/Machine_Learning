@@ -6,6 +6,11 @@ import sys
 from sample_script import *
 import pytest
 
+
+#if py script is in the parent dir 
+# sys.path.append(os.path.abspath('..'))
+# from folder_name.sample_script import *
+
 #test
 def test_summation1():
     int=5
