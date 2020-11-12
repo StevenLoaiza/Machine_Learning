@@ -17,3 +17,9 @@ def test_summation2():
 
     assert int==error_summation(1,4)
 
+
+
+#Input multiple test cases
+@pytest.mark.parametrize("input1,input2,expectedval",[(1,4,5),(-3,3,0)])
+def test3(input1,input2,expectedval):
+    assert summation(input1,input2)==expectedval
