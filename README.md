@@ -11,6 +11,11 @@
 </li>
 <li><a href="#simple">2 A Simple Approch</a></li>
 <li><a href="#tree">3 Decision Trees</a></li>
+  <li><a href="#opti">4 Optimization Methods</a>
+  <ul>
+    <li><a href="grad">4.1 Gradient Descent</a></li>
+    </ul>
+  </li>
 </ul>
 </div>
 
@@ -34,3 +39,9 @@ The project "Decision Tree" hold 3 key lessons:
 - Making Decisions with Trees
 
 Each of the lessons above helps the reader decipher the inner workings of tree base algorithms. Keep in mind that this section is a introduction and will go over the building blocks of the algorithm.
+
+# <a id="opti"> Optimization Methods </a>
+
+## <a id="grad"> Gradient Descent </a>
+
+![](https://github.com/StevenLoaiza/Machine_Learning/blob/master/optimize/gradient_animation.gif)
