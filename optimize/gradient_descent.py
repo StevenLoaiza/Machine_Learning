@@ -21,12 +21,26 @@ class func_n_grad:
         grad_value=2*(self)
         return grad_value
 
+#gradient descent
+def grad_desc(startParam,learningRate,iteration):
+    #int
+    param=-startParam
+    X=[]
+    Y=[]
+    for i in range(iteration):
+        X.append(param)
+        gradient=func_n_grad.mygrad(param)
+        Y.append(gradient)
+        param=param-learningRate*gradient
+    return X,Y
     
 
 init=func_n_grad
 Y_val=init.myfunc(X_val)
-grad_val=init.mygrad(X_val)
 
+
+param,grad_val=grad_desc(-13,0.1,25)
+Y_hat=init.myfunc(np.array(param))
 #create the figure
 fig = plt.figure() 
 
@@ -60,8 +74,8 @@ def animate(i):
 	t = i 
 	
 	# x, y values to be plotted
-	xdata = [X_val[t]-3,X_val[t],X_val[t]+3]
-	ydata = [-3*grad_val[t]+Y_val[t],Y_val[t],3*grad_val[t]+Y_val[t]]
+	xdata = [param[t]-3,param[t],param[t]+3]
+	ydata = [-3*grad_val[t]+Y_hat[t],Y_hat[t],3*grad_val[t]+Y_hat[t]]
     #set the appended values into the empty line graph we created
 	line.set_data(xdata, ydata) 
 	return line
@@ -79,7 +93,7 @@ plt.xticks(fontsize=15)
 plt.yticks(fontsize=15)
 # Use the FuncAnimation from matplotlib	 
 anim = FuncAnimation(fig, animate, init_func=init, 
-							frames=20, blit=False,interval=500) 
+							frames=len(param), blit=False,interval=200) 
 
 #save GIF
 anim.save('gradient_animation.gif')
