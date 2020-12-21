@@ -18,8 +18,11 @@ plt.title("Global -v- Local minimum")
 # description
 plt.annotate('Local Minima',xy=(1,-0.5),xytext=(0.90,0.5),
              arrowprops=dict(arrowstyle='->',lw=1.5,color='r'),bbox=dict(pad=5,facecolor="none"))
+plt.annotate('Global Minima',xy=(0.3,-1.8),xytext=(0.2,0.5),
+             arrowprops=dict(arrowstyle='->',lw=1.5,color='r'),bbox=dict(pad=5,facecolor="none"))
 
 plt.grid()
+plt.legend()
 plt.savefig("minima.png")
 plt.show()
 
