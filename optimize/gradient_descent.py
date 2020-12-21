@@ -5,20 +5,20 @@ Gradient Descent
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-
+from math import pi,cos,sin
 #sample x values
-X_val=np.arange(-14,15)
+X_val=np.linspace(0.1,1.1,50)
 
+#create class object
 #create class object
 class func_n_grad:
     def __init__(self):
         return self
-        
     def myfunc(self):
-        func_value=self**2
+        func_value=[cos(3*pi*xi)/xi for xi in self]
         return func_value
     def mygrad(self):
-        grad_value=2*(self)
+        grad_value=-(3*pi*self*sin(3*pi*self)+cos(3*pi*self))/(self**2)
         return grad_value
 
 #gradient descent
@@ -38,8 +38,10 @@ def grad_desc(startParam,learningRate,iteration):
 init=func_n_grad
 Y_val=init.myfunc(X_val)
 
+start_x=0.1
+learn_rate=0.001
 
-param,grad_val=grad_desc(-13,0.1,25)
+param,grad_val=grad_desc(start_x,learn_rate,25)
 Y_hat=init.myfunc(np.array(param))
 #create the figure
 fig = plt.figure() 
@@ -54,7 +56,7 @@ plt.title('Gradient Descent Plot',fontsize=18)
 ax=plt.axes()
 
 # Create empty lines we are going to plot as part of the animation
-line, = ax.plot([], [],color='red',linestyle='dashed',label='Gradient') 
+line, = ax.plot([], [],color='red',linestyle='dashed',label='Gradient Initial %s, Learning Rate: %s' % (start_x,learn_rate)) 
 # Static line that will appear on the graph
 line2, = ax.plot(X_val,Y_val,color='blue',label= 'Concave Function')
 
@@ -96,4 +98,4 @@ anim = FuncAnimation(fig, animate, init_func=init,
 							frames=len(param), blit=False,interval=200) 
 
 #save GIF
-anim.save('gradient_animation.gif')
+anim.save('gradient_desc_animation_local.gif')
