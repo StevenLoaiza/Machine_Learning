@@ -25,8 +25,8 @@ Use the Hyper Link on each section title to read the article content.
 
 
 
-# <a id="simple" href="https://github.com/StevenLoaiza/Machine_Learning/blob/master/Introduction/Machine%20Learning%20-%20A%20simple%20approach.ipynb">A Simple Approach</a>
-<p> A Brief Introduction to the world of Machine Learning. In this article we begin with two easy to understand supervised learning concepts (Linear Regressions & K- Nearest Neighborhood Method)</p>
+# <a id="simple">A Simple Approach</a>
+A Brief Introduction to the world of Machine Learning. In this article we begin with two easy to understand supervised learning concepts [Linear Regressions & K- Nearest Neighborhood Method](https://github.com/StevenLoaiza/Machine_Learning/blob/master/Introduction/Machine%20Learning%20-%20A%20simple%20approach.ipynb)
 
 
 # <a id="tree" href="https://github.com/StevenLoaiza/Machine_Learning/tree/master/Decision%20Trees"> Decision Trees</a>
