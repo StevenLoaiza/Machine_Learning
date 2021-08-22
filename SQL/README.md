@@ -1,4 +1,4 @@
-#LeetCode Problems
+# LeetCode Problems
 
 ## 196. Delete Duplicate Emails
 
@@ -37,7 +37,7 @@ DELETE tbl1
         AND tbl1.Id > tbl2.Id
 ;
 ```
-## 196. Second Highest Salary
+## 176. Second Highest Salary
 
 Write a SQL query to get the second highest salary from the Employee table.
 
@@ -66,4 +66,45 @@ SELECT IFNULL(
     LIMIT 1 OFFSET 1),
 NULL)
 as SecondHighestSalary;
+```
+
+175. Combine Two Tables
+
+Table: Person
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| PersonId    | int     |
+| FirstName   | varchar |
+| LastName    | varchar |
++-------------+---------+
+PersonId is the primary key column for this table.
+Table: Address
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| AddressId   | int     |
+| PersonId    | int     |
+| City        | varchar |
+| State       | varchar |
++-------------+---------+
+AddressId is the primary key column for this table.
+ 
+
+Write a SQL query for a report that provides the following information for each person in the Person table, regardless if there is an address for each of those people:
+
+### Solution
+```sql
+SELECT
+    FirstName,
+    LastName,
+    City,
+    State
+FROM
+    Person
+LEFT JOIN Address
+    ON Address.PersonId = Person.PersonId
+;
 ```
