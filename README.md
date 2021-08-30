@@ -4,16 +4,17 @@
 <div id="toc_container">
 <ul class="toc_list">
   <li><a href="#repo">1 Repo Introduction</a>
+  <li><a href="#repo">2 Data Science Toolkit</a>
   <ul>
-    <li><a href="#First_Sub_Point_1">1.1 First Sub Point 1</a></li>
-    <li><a href="#First_Sub_Point_2">1.2 First Sub Point 2</a></li>
+    <li><a href="#First_Sub_Point_1">2.1 Structured Query Language</a></li>
+    <li><a href="#First_Sub_Point_2">2.2 First Sub Point 2</a></li>
   </ul>
 </li>
-<li><a href="#simple">2 A Simple Approch</a></li>
-<li><a href="#tree">3 Decision Trees</a></li>
-  <li><a href="#opti">4 Optimization Methods</a>
+<li><a href="#simple">3 A Simple Approch</a></li>
+<li><a href="#tree">4 Decision Trees</a></li>
+  <li><a href="#opti">5 Optimization Methods</a>
   <ul>
-    <li><a href="grad">4.1 Gradient Descent</a></li>
+    <li><a href="grad">5.1 Gradient Descent</a></li>
     </ul>
   </li>
 </ul>
@@ -23,7 +24,11 @@
 
 Use the Hyper Link on each section title to read the article content.
 
+# <a id="toolkit"> Data Science Toolkit </a>
 
+## <a id="sql"> Introduction to Structure Query Language </a>
+
+![image](https://user-images.githubusercontent.com/46308439/131370112-f12d3ced-af70-4918-bbf9-83d44fc944ba.png)
 
 # <a id="simple">A Simple Approach</a>
 A Brief Introduction to the world of Machine Learning. In this article we begin with two easy to understand supervised learning concepts [Linear Regressions & K- Nearest Neighborhood Method](https://github.com/StevenLoaiza/Machine_Learning/blob/master/Introduction/Machine%20Learning%20-%20A%20simple%20approach.ipynb)
