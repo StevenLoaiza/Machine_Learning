@@ -32,7 +32,7 @@ Use the Hyper Link on each section title to read the article content.
 
 ## <a id="sql"> Introduction to Structure Query Language </a>
 
-### <a id="general"> Joins </a>
+### <a id="general"> General Layout </a>
 Below we cover a few base components that make up a sql database:
 
 1.	Schema: It is a container that stores collections of tables, procedures and metadata.
@@ -43,6 +43,8 @@ Below we cover a few base components that make up a sql database:
 ![image](https://user-images.githubusercontent.com/46308439/131370112-f12d3ced-af70-4918-bbf9-83d44fc944ba.png)
 
 ### <a id="join"> Joins </a>
+
+![image](https://user-images.githubusercontent.com/46308439/131388527-df52aa31-3e1b-422a-b4e1-d6598df45a0d.png)
 
 Let assume we have two seperate tables with an (id) column and a (var) column. Our Goal is to Combine
 the tables together.
