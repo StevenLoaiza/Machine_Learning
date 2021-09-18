@@ -69,7 +69,7 @@ class AmlUtility:
         self.environment_setup()
         
         # Specify prediction configuration - scoring script, running environment
-        inference_config = InferenceConfig(**self.update_params['inference_config'])
+        inference_config = InferenceConfig(**self.update_params['inference_config'], environment=self.myenv)
 
         # Update AKS service
         service.update(
