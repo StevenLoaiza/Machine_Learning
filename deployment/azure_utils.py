@@ -24,9 +24,15 @@ class AmlUtility:
   Only supports Azure K8s service.
   """
   
-    def __init__(self, config):
-      """Initialize. Load configuration and defines the workspace"""
-    
+    def __init__(self, config_path):
+      """Initialize. Load configuration and defines the workspace
+      
+      Args:
+          config_path (str): Path to json configuration
+      """
+      # Load config
+      with open(config_path) as fp:
+          config = json.load(fp)
       # Set workspace
       self.ws = Workspace.from_config()
 
@@ -76,8 +82,8 @@ class AmlUtility:
   
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", type=str,
-                        dest='config',
+    parser.add_argument("--config_path", type=str,
+                        dest='config_path',
                         help="Path to the configuration file",
                         required=True)
     parser.add_argument("--service_name", type=str,
@@ -90,7 +96,7 @@ if __name__ == '__main__':
                         required=True)
     args = parser.parse_args()
     # Initiate Class
-    aml = AmlDeployment(args.config)
+    aml = AmlDeployment(args.config_path)
     # Update Model
     aml.update_aks(args.service_name, args.new_model)  
   
