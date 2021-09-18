@@ -1,0 +1,17 @@
+{
+    "environment_params": {
+        "name": "my-env-name",
+        "conda_dependency": ["numpy", "scikit-learn==0.22.2.post1", "scipy"],
+        "pip_dependency": ["azureml-defaults", "inference-schema"]
+    }  
+    "update_params": {
+        "inference_config": {
+            "entry_script": "score.py",
+            "inference_path": "inference"
+        },
+        "aks_config": {
+            "autoscale_enabled": true, 
+            "memory_gb": 8
+        }
+    }    
+}
