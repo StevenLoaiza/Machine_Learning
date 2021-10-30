@@ -13,14 +13,21 @@
     </ul>
     <li><a href="#First_Sub_Point_2">2.2 First Sub Point 2</a></li>
   </ul>
-</li>
-<li><a href="#simple">3 A Simple Approch</a></li>
-<li><a href="#tree">4 Decision Trees</a></li>
+  </li>
+  <li><a href="#simple">3 A Simple Approch</a></li>
+  <li><a href="#tree">4 Decision Trees</a></li>
   <li><a href="#opti">5 Optimization Methods</a>
-  <ul>
+    <ul>
     <li><a href="grad">5.1 Gradient Descent</a></li>
     </ul>
   </li>
+  <li><a href="#deploy">6 Deployment - Modeling Services</a>
+  <ul>
+  <li><a href="#k8s">6.1 Kubernetes</a></li>
+    <ul>
+      <li><a href="#zero">6.1.1 Zero downtime deployment</a></li>
+    </ul>
+  </ul>
 </ul>
 </div>
 
@@ -106,3 +113,9 @@ Each of the lessons above helps the reader decipher the inner workings of tree b
 ## <a id="grad"> Gradient Descent </a>
 
 ![](https://github.com/StevenLoaiza/Machine_Learning/blob/master/optimize/gradient_animation.gif)
+
+# <a id="deploy">Deployment - Modeling Services</a>
+
+## <a id="k8s">Kubernetes</a>
+### <a id="zero">Zero downtime deployment</a>
+![](https://github.com/StevenLoaiza/Machine_Learning/blob/master/deployment/images/k8s_update.gif)
