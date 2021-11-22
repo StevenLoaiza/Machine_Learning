@@ -1,40 +1,6 @@
 # Data Science and Programming in Python
 
-## Table of Content
-<div id="toc_container">
-<ul class="toc_list">
-  <li><a href="#repo">1 Repo Introduction</a>
-  <li><a href="#repo">2 Data Science Toolkit</a>
-  <ul>
-    <li><a href="#sql">2.1 Structured Query Language</a></li>
-    <ul>
-      <li><a href="#general">2.1.1 General Layout</a></li>
-      <li><a href="#join">2.1.2 Join</a></li>
-    </ul>
-    <li><a href="#First_Sub_Point_2">2.2 First Sub Point 2</a></li>
-  </ul>
-  </li>
-  <li><a href="#simple">3 A Simple Approch</a></li>
-  <li><a href="#tree">4 Decision Trees</a></li>
-  <li><a href="#opti">5 Optimization Methods</a>
-    <ul>
-    <li><a href="grad">5.1 Gradient Descent</a></li>
-    </ul>
-  </li>
-  <li><a href="#deploy">6 Deployment - Modeling Services</a>
-  <ul>
-  <li><a href="#k8s">6.1 Kubernetes</a></li>
-    <ul>
-      <li><a href="#zero">6.1.1 Zero downtime deployment</a></li>
-    </ul>
-  </ul>
-</ul>
-</div>
-
-# <a id="repo">Repo Introduction</a>
-
-Use the Hyper Link on each section title to read the article content.
-
+-- TODO Introduction
 # <a id="toolkit"> Data Science Toolkit </a>
 
 ## <a id="sql"> Introduction to Structure Query Language </a>
