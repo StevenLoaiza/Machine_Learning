@@ -1,4 +1,5 @@
 # Data Science and Programming in Python
+[![CI](https://github.com/StevenLoaiza/Machine_Learning/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/StevenLoaiza/Machine_Learning/actions/workflows/main.yml)
 
 -- TODO Introduction
 # <a id="toolkit"> Data Science Toolkit </a>
