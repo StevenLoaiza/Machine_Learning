@@ -10,7 +10,7 @@ logger.setLevel(logging.INFO)
 def pvalue_sim(observed_mean, feature, sample_size, sim_number):
     """ Adapted from Khan Academy Video: Estimating P Value from Simulation
 
-    Source:
+    Source: https://www.khanacademy.org/math/ap-statistics/xfb5d8e68:inference-categorical-proportions/idea-significance-tests/e/estimating-p-values-and-making-conclusions
 
     Args:
         observed_mean: self
