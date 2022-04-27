@@ -18,6 +18,7 @@ def return_connector_engine(**kwags):
 
 class SnowflakeSetup:
     """ Class for Interactive queries on SF"""
+
     def __init__(self, snowflake_config, override_database=None, override_schema=None):
         """
         Args:
@@ -33,10 +34,11 @@ class SnowflakeSetup:
 
         # Place holder for error handling when authentication fails
         try:
-            ctx, engine = return_connector_engine(snowflake_config)
+            ctx, engine = return_connector_engine(**snowflake_config)
         except snowflake.connector.errors.DatabaseError as sf_err:
             raise sf_err
 
+        self.ctx = ctx
         self.cur = ctx.cursor()
         self.engine = engine
 
@@ -114,8 +116,7 @@ if __name__ == '__main__':
 
     # Init
     config = yaml.load(open('./config/config.yml', 'rb'), Loader=yaml.FullLoader)
-    sf_connect = SnowflakeSetup(**config['snowflake'])
+    sf_connect = SnowflakeSetup(config['snowflake'])
 
     # Upload
     sf_connect.write_to_sf(df, 'testing', 'replace')
-
