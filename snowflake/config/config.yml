@@ -1,0 +1,12 @@
+# YaML config file for snowflake utility function
+snowflake:
+  user:
+  account:
+  role:
+  # See snowflake connection documentation for types of authentication, explicitly set unused param to None
+  authenticator:
+  token:
+  password: None
+  warehouse:
+  database:
+  schema:
